@@ -10,18 +10,30 @@ namespace Windows_Uomi_App
 {
     class Translator
     {
+
         private static Translator _instance;
-        private ResourceManager _resourceManager;    
-        
+        private ResourceManager _resourceManager;
+        private CultureInfo _cultureInfo;
+        private string _localeLanguage;
+
         private Translator()
         {
             _resourceManager = new ResourceManager("Windows_Uomi_App.Languages.Translations", typeof(Translator).Assembly);
+            _localeLanguage = "en"; // Default language is english
         }
 
-        public string Translate(string StringToTranslate, string Locale = "en")
+        public string Locale {
+            get { return _localeLanguage;  }
+            set
+            {
+                _localeLanguage = value;
+                _cultureInfo = CultureInfo.CreateSpecificCulture(_localeLanguage);
+            }
+        }
+
+        public string Translate(string StringToTranslate)
         {
-            CultureInfo cultureInfo = CultureInfo.CreateSpecificCulture(Locale); ;            
-            return _resourceManager.GetString("frmMain_Caption", cultureInfo);
+            return _resourceManager.GetString("frmMain_Caption", _cultureInfo);
         }
 
         public static Translator Instance

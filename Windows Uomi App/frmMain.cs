@@ -19,8 +19,11 @@ namespace Windows_Uomi_App
 
         private void frmMain_Load(object sender, EventArgs e)
         {
-
-            this.Text = Translator.Instance.Translate("frmMain_Caption", "el-GR");
+            Translator.Instance.Locale = "el-GR";
+            this.Text = Translator.Instance.Translate("frmMain_Caption");
         }
+
+
+
     }
 }
