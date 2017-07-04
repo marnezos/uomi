@@ -10,11 +10,17 @@ using System.Windows.Forms;
 
 namespace Windows_Uomi_App
 {
-    public partial class frmMain : Form
+    public partial class frmMain : Form 
     {
         public frmMain()
         {
             InitializeComponent();
+        }
+
+        private void frmMain_Load(object sender, EventArgs e)
+        {
+
+            this.Text = Translator.Instance.Translate("frmMain_Caption", "el-GR");
         }
     }
 }
