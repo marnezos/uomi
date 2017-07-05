@@ -19,11 +19,18 @@ namespace Windows_Uomi_App
 
         private void frmMain_Load(object sender, EventArgs e)
         {
-            Translator.Instance.Locale = "el-GR";
-            this.Text = Translator.Instance.Translate("frmMain_Caption");
+            Translator.Instance.Locale = "en";
+            TranslateForm();
         }
 
-
+        private void TranslateForm()
+        {
+            this.Text = Translator.Instance.Translate("frmMain_Caption");
+            tbpCustomers.Text = Translator.Instance.Translate("tbpCustomers_Text");
+            tbpLedger.Text = Translator.Instance.Translate("tbpLedger_Text");
+            mnuItemAddCustomer.Text = Translator.Instance.Translate("mnuItemAddCustomer_Text");
+            mnuItemCustomers.Text = Translator.Instance.Translate("mnuItemCustomers_Text");
+        }
 
     }
 }

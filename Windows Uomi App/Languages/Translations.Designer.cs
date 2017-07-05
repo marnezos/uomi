@@ -68,5 +68,41 @@ namespace Windows_Uomi_App.Languages {
                 return ResourceManager.GetString("frmMain_Caption", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add Customer.
+        /// </summary>
+        internal static string mnuItemAddCustomer_Text {
+            get {
+                return ResourceManager.GetString("mnuItemAddCustomer_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Customers.
+        /// </summary>
+        internal static string mnuItemCustomers_Text {
+            get {
+                return ResourceManager.GetString("mnuItemCustomers_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Customers.
+        /// </summary>
+        internal static string tbpCustomers_Text {
+            get {
+                return ResourceManager.GetString("tbpCustomers_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ledger.
+        /// </summary>
+        internal static string tbpLedger_Text {
+            get {
+                return ResourceManager.GetString("tbpLedger_Text", resourceCulture);
+            }
+        }
     }
 }

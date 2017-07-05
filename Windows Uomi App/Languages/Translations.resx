@@ -120,4 +120,16 @@
   <data name="frmMain_Caption" xml:space="preserve">
     <value>Uomi - Because, you owe me!</value>
   </data>
+  <data name="mnuItemAddCustomer_Text" xml:space="preserve">
+    <value>Add Customer</value>
+  </data>
+  <data name="mnuItemCustomers_Text" xml:space="preserve">
+    <value>Customers</value>
+  </data>
+  <data name="tbpCustomers_Text" xml:space="preserve">
+    <value>Customers</value>
+  </data>
+  <data name="tbpLedger_Text" xml:space="preserve">
+    <value>Ledger</value>
+  </data>
 </root>

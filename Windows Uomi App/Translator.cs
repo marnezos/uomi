@@ -33,7 +33,7 @@ namespace Windows_Uomi_App
 
         public string Translate(string StringToTranslate)
         {
-            return _resourceManager.GetString("frmMain_Caption", _cultureInfo);
+            return _resourceManager.GetString(StringToTranslate, _cultureInfo);
         }
 
         public static Translator Instance
