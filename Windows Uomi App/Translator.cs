@@ -22,8 +22,17 @@ namespace Windows_Uomi_App
             _localeLanguage = "en"; // Default language is english
         }
 
-        public string Locale {
-            get { return _localeLanguage;  }
+        public CultureInfo SelectedCultureInfo
+        {
+            get
+            {
+                return _cultureInfo;
+            }
+        }
+
+        public string Locale
+        {
+            get { return _localeLanguage; }
             set
             {
                 _localeLanguage = value;
@@ -36,7 +45,7 @@ namespace Windows_Uomi_App
             return _resourceManager.GetString(StringToTranslate, _cultureInfo);
         }
 
-        public string LocalizeCurrency(int amount)
+        public string LocalizeCurrency(float amount)
         {
             return amount.ToString("c", _cultureInfo);
         }
@@ -53,7 +62,7 @@ namespace Windows_Uomi_App
             }
         }
 
-        
+
 
     }
 }
