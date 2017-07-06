@@ -36,6 +36,11 @@ namespace Windows_Uomi_App
             return _resourceManager.GetString(StringToTranslate, _cultureInfo);
         }
 
+        public string LocalizeCurrency(int amount)
+        {
+            return amount.ToString("c", _cultureInfo);
+        }
+
         public static Translator Instance
         {
             get
@@ -47,6 +52,8 @@ namespace Windows_Uomi_App
                 return _instance;
             }
         }
+
+        
 
     }
 }
