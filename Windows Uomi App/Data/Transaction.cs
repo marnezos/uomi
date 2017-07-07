@@ -23,6 +23,17 @@ namespace Windows_Uomi_App.Data
         public string Comment { get; set; }
         public TransactionType TransType { get; set; }
 
+        [BsonIgnore]
+        public string LocalizedAmount
+        {
+            get
+            {
+                float fTotal = Amount;
+                fTotal = fTotal / 100;
+                return Translator.Instance.LocalizeCurrency(fTotal);
+            }
+        }
+
         public Transaction()
         {
             TransType = TransactionType.Credit;
@@ -30,7 +41,19 @@ namespace Windows_Uomi_App.Data
 
         public Transaction(TransactionType transType)
         {
-            TransType = TransType;
+            TransType = transType;
         }
+
+        //public static IEnumerable<Transaction> ToList()
+        //{
+        //    using (var db = new LiteDB.LiteDatabase(AppDomain.CurrentDomain.BaseDirectory + @"\uomi.db"))
+        //    {
+        //        var col = db.GetCollection<Customer>("customers");
+
+        //        IEnumerable<Customer> retTransactions;
+        //        retTransactions = col.FindAll().OrderBy(x => x.Address);
+        //    }
+        //}
+
     }
 }

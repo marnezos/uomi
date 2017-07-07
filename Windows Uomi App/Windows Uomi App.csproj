@@ -72,6 +72,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CurrencyTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Data\Customer.cs" />
     <Compile Include="Data\RetailCustomer.cs" />
     <Compile Include="Data\Transaction.cs" />
@@ -81,6 +84,12 @@
     </Compile>
     <Compile Include="frmCustomerData.Designer.cs">
       <DependentUpon>frmCustomerData.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmCustomerLedger.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCustomerLedger.Designer.cs">
+      <DependentUpon>frmCustomerLedger.cs</DependentUpon>
     </Compile>
     <Compile Include="frmMain.cs">
       <SubType>Form</SubType>
@@ -105,6 +114,9 @@
     <EmbeddedResource Include="frmCustomerData.resx">
       <DependentUpon>frmCustomerData.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmCustomerLedger.resx">
+      <DependentUpon>frmCustomerLedger.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
     </EmbeddedResource>
@@ -128,6 +140,7 @@
     </Compile>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\Windows_Uomi_App.Data.Customer.datasource" />
+    <None Include="Properties\DataSources\Windows_Uomi_App.Data.Transaction.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

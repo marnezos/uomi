@@ -123,8 +123,14 @@
   <data name="btnSave_Text" xml:space="preserve">
     <value>Save</value>
   </data>
+  <data name="Close" xml:space="preserve">
+    <value>Close</value>
+  </data>
   <data name="confirm_delete_customer" xml:space="preserve">
     <value>Are you sure you want to delete customer: '{0}'?</value>
+  </data>
+  <data name="confirm_delete_customer_caption" xml:space="preserve">
+    <value>Delete Customer</value>
   </data>
   <data name="credit" xml:space="preserve">
     <value>Credit</value>
@@ -135,8 +141,17 @@
   <data name="debit" xml:space="preserve">
     <value>Debit</value>
   </data>
+  <data name="Erroneous_Amount" xml:space="preserve">
+    <value>Please check the amount you entered</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>Error</value>
+  </data>
   <data name="frmCustomerData_Caption" xml:space="preserve">
     <value>Customer Data</value>
+  </data>
+  <data name="frmCustomerLedger_Caption" xml:space="preserve">
+    <value>Customer Ledger</value>
   </data>
   <data name="frmMain_Caption" xml:space="preserve">
     <value>Uomi - Because, you owe me!</value>
@@ -146,6 +161,9 @@
   </data>
   <data name="gbxConctactData_Text" xml:space="preserve">
     <value>Contact Data</value>
+  </data>
+  <data name="gbxCustomerData_Text" xml:space="preserve">
+    <value>Customer Data</value>
   </data>
   <data name="gbxCustomerType_Text" xml:space="preserve">
     <value>Customer Type</value>
@@ -180,14 +198,32 @@
   <data name="gvwCustomers_phonenumberDataGridViewTextBoxColumn_text" xml:space="preserve">
     <value>Phonenumber</value>
   </data>
+  <data name="gvwTransactions_commentDataGridViewTextBoxColumn_text" xml:space="preserve">
+    <value>Comment</value>
+  </data>
+  <data name="gvwTransactions_localizedAmountDataGridViewTextBoxColumn_text" xml:space="preserve">
+    <value>Amount</value>
+  </data>
+  <data name="gvwTransactions_timestampDataGridViewTextBoxColumn_text" xml:space="preserve">
+    <value>Timestamp</value>
+  </data>
+  <data name="gvwTransactions_transTypeDataGridViewTextBoxColumn_text" xml:space="preserve">
+    <value>Type</value>
+  </data>
   <data name="lblAddress_Text" xml:space="preserve">
     <value>Address</value>
   </data>
   <data name="lblAmount_Text" xml:space="preserve">
     <value>Amount</value>
   </data>
+  <data name="lblBalance_Text" xml:space="preserve">
+    <value>Balance</value>
+  </data>
   <data name="lblBusinessName_Text" xml:space="preserve">
     <value>Business Name</value>
+  </data>
+  <data name="lblCustomer_Text" xml:space="preserve">
+    <value>Customer</value>
   </data>
   <data name="lblDate_Text" xml:space="preserve">
     <value>Transaction Date</value>
@@ -219,8 +255,14 @@
   <data name="mnuItemDeleteCustomer_Text" xml:space="preserve">
     <value>Delete Customer</value>
   </data>
+  <data name="mnuItemDeleteTransaction_Text" xml:space="preserve">
+    <value>Delete Transaction</value>
+  </data>
   <data name="mnuItemEditCustomer_Text" xml:space="preserve">
     <value>Edit Customer</value>
+  </data>
+  <data name="mnuItemEditTransaction_Text" xml:space="preserve">
+    <value>Edit Transaction</value>
   </data>
   <data name="mnuItemTransaction_Text" xml:space="preserve">
     <value>Transaction</value>
@@ -236,5 +278,11 @@
   </data>
   <data name="tbpCustomers_Text" xml:space="preserve">
     <value>Customers</value>
+  </data>
+  <data name="confirm_delete_transaction" xml:space="preserve">
+    <value>Are you sure you want to delete transaction at '{0}' of {1}?</value>
+  </data>
+  <data name="confirm_delete_transaction_caption" xml:space="preserve">
+    <value>Delete Transaction</value>
   </data>
 </root>

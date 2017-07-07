@@ -47,8 +47,11 @@
             this.mnuMain = new System.Windows.Forms.MenuStrip();
             this.mnuItemCustomers = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuItemAddCustomer = new System.Windows.Forms.ToolStripMenuItem();
-            this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuItemSettings = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuItemLanguage = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuItemEnglish = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuItemGreek = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuItemAbout = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuCustomersPopup = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.mnuItemTransaction = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuItemAddCredit = new System.Windows.Forms.ToolStripMenuItem();
@@ -57,9 +60,6 @@
             this.mnuItemViewCustomer = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuItemEditCustomer = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuItemDeleteCustomer = new System.Windows.Forms.ToolStripMenuItem();
-            this.languageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.englishUSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.greekToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusMain.SuspendLayout();
             this.tbcMain.SuspendLayout();
             this.tbpCustomers.SuspendLayout();
@@ -130,6 +130,7 @@
             this.gvwCustomers.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gvwCustomers.Size = new System.Drawing.Size(750, 332);
             this.gvwCustomers.TabIndex = 2;
+            this.gvwCustomers.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gvwCustomers_CellDoubleClick);
             this.gvwCustomers.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.gvwCustomers_ColumnHeaderMouseClick);
             this.gvwCustomers.MouseClick += new System.Windows.Forms.MouseEventHandler(this.gvwCustomers_MouseClick);
             // 
@@ -211,8 +212,8 @@
             // 
             this.mnuMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mnuItemCustomers,
-            this.settingsToolStripMenuItem,
-            this.aboutToolStripMenuItem});
+            this.mnuItemSettings,
+            this.mnuItemAbout});
             this.mnuMain.Location = new System.Drawing.Point(0, 0);
             this.mnuMain.Name = "mnuMain";
             this.mnuMain.Size = new System.Drawing.Size(788, 24);
@@ -234,19 +235,42 @@
             this.mnuItemAddCustomer.Text = "-Add Customer-";
             this.mnuItemAddCustomer.Click += new System.EventHandler(this.mnuItemAddCustomer_Click);
             // 
-            // settingsToolStripMenuItem
+            // mnuItemSettings
             // 
-            this.settingsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.languageToolStripMenuItem});
-            this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
-            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
-            this.settingsToolStripMenuItem.Text = "Settings";
+            this.mnuItemSettings.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mnuItemLanguage});
+            this.mnuItemSettings.Name = "mnuItemSettings";
+            this.mnuItemSettings.Size = new System.Drawing.Size(71, 20);
+            this.mnuItemSettings.Text = "-Settings-";
             // 
-            // aboutToolStripMenuItem
+            // mnuItemLanguage
             // 
-            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
-            this.aboutToolStripMenuItem.Text = "About";
+            this.mnuItemLanguage.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mnuItemEnglish,
+            this.mnuItemGreek});
+            this.mnuItemLanguage.Name = "mnuItemLanguage";
+            this.mnuItemLanguage.Size = new System.Drawing.Size(152, 22);
+            this.mnuItemLanguage.Text = "-Language-";
+            // 
+            // mnuItemEnglish
+            // 
+            this.mnuItemEnglish.Name = "mnuItemEnglish";
+            this.mnuItemEnglish.Size = new System.Drawing.Size(152, 22);
+            this.mnuItemEnglish.Text = "English (US)";
+            this.mnuItemEnglish.Click += new System.EventHandler(this.mnuItemEnglish_Click);
+            // 
+            // mnuItemGreek
+            // 
+            this.mnuItemGreek.Name = "mnuItemGreek";
+            this.mnuItemGreek.Size = new System.Drawing.Size(152, 22);
+            this.mnuItemGreek.Text = "Ελληνικά";
+            this.mnuItemGreek.Click += new System.EventHandler(this.mnuItemGreek_Click);
+            // 
+            // mnuItemAbout
+            // 
+            this.mnuItemAbout.Name = "mnuItemAbout";
+            this.mnuItemAbout.Size = new System.Drawing.Size(62, 20);
+            this.mnuItemAbout.Text = "-About-";
             // 
             // mnuCustomersPopup
             // 
@@ -280,6 +304,7 @@
             this.mnuItemAddDebit.Name = "mnuItemAddDebit";
             this.mnuItemAddDebit.Size = new System.Drawing.Size(266, 22);
             this.mnuItemAddDebit.Text = "-Debit- (Customer Owes Us Money)";
+            this.mnuItemAddDebit.Click += new System.EventHandler(this.mnuItemAddDebit_Click);
             // 
             // toolStripMenuItem1
             // 
@@ -291,6 +316,7 @@
             this.mnuItemViewCustomer.Name = "mnuItemViewCustomer";
             this.mnuItemViewCustomer.Size = new System.Drawing.Size(172, 22);
             this.mnuItemViewCustomer.Text = "-View Customer-";
+            this.mnuItemViewCustomer.Click += new System.EventHandler(this.mnuItemViewCustomer_Click);
             // 
             // mnuItemEditCustomer
             // 
@@ -305,27 +331,6 @@
             this.mnuItemDeleteCustomer.Size = new System.Drawing.Size(172, 22);
             this.mnuItemDeleteCustomer.Text = "-Delete Customer-";
             this.mnuItemDeleteCustomer.Click += new System.EventHandler(this.mnuItemDeleteCustomer_Click);
-            // 
-            // languageToolStripMenuItem
-            // 
-            this.languageToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.englishUSToolStripMenuItem,
-            this.greekToolStripMenuItem});
-            this.languageToolStripMenuItem.Name = "languageToolStripMenuItem";
-            this.languageToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.languageToolStripMenuItem.Text = "Language";
-            // 
-            // englishUSToolStripMenuItem
-            // 
-            this.englishUSToolStripMenuItem.Name = "englishUSToolStripMenuItem";
-            this.englishUSToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.englishUSToolStripMenuItem.Text = "English (US)";
-            // 
-            // greekToolStripMenuItem
-            // 
-            this.greekToolStripMenuItem.Name = "greekToolStripMenuItem";
-            this.greekToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.greekToolStripMenuItem.Text = "Greek";
             // 
             // frmMain
             // 
@@ -384,11 +389,11 @@
         private System.Windows.Forms.ToolStripMenuItem mnuItemAddCredit;
         private System.Windows.Forms.ToolStripMenuItem mnuItemAddDebit;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem settingsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem languageToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem englishUSToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem greekToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem mnuItemSettings;
+        private System.Windows.Forms.ToolStripMenuItem mnuItemAbout;
+        private System.Windows.Forms.ToolStripMenuItem mnuItemLanguage;
+        private System.Windows.Forms.ToolStripMenuItem mnuItemEnglish;
+        private System.Windows.Forms.ToolStripMenuItem mnuItemGreek;
     }
 }
 

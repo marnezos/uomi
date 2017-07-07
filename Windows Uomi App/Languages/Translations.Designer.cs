@@ -79,11 +79,47 @@ namespace Windows_Uomi_App.Languages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Close.
+        /// </summary>
+        internal static string Close {
+            get {
+                return ResourceManager.GetString("Close", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Are you sure you want to delete customer: &apos;{0}&apos;?.
         /// </summary>
         internal static string confirm_delete_customer {
             get {
                 return ResourceManager.GetString("confirm_delete_customer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Delete Customer.
+        /// </summary>
+        internal static string confirm_delete_customer_caption {
+            get {
+                return ResourceManager.GetString("confirm_delete_customer_caption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Are you sure you want to delete transaction at &apos;{0}&apos; of {1}?.
+        /// </summary>
+        internal static string confirm_delete_transaction {
+            get {
+                return ResourceManager.GetString("confirm_delete_transaction", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Delete Transaction.
+        /// </summary>
+        internal static string confirm_delete_transaction_caption {
+            get {
+                return ResourceManager.GetString("confirm_delete_transaction_caption", resourceCulture);
             }
         }
         
@@ -115,11 +151,38 @@ namespace Windows_Uomi_App.Languages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Please check the amount you entered.
+        /// </summary>
+        internal static string Erroneous_Amount {
+            get {
+                return ResourceManager.GetString("Erroneous_Amount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error.
+        /// </summary>
+        internal static string Error {
+            get {
+                return ResourceManager.GetString("Error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Customer Data.
         /// </summary>
         internal static string frmCustomerData_Caption {
             get {
                 return ResourceManager.GetString("frmCustomerData_Caption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Customer Ledger.
+        /// </summary>
+        internal static string frmCustomerLedger_Caption {
+            get {
+                return ResourceManager.GetString("frmCustomerLedger_Caption", resourceCulture);
             }
         }
         
@@ -156,6 +219,15 @@ namespace Windows_Uomi_App.Languages {
         internal static string gbxCustomer_Text {
             get {
                 return ResourceManager.GetString("gbxCustomer_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Customer Data.
+        /// </summary>
+        internal static string gbxCustomerData_Text {
+            get {
+                return ResourceManager.GetString("gbxCustomerData_Text", resourceCulture);
             }
         }
         
@@ -250,6 +322,42 @@ namespace Windows_Uomi_App.Languages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Comment.
+        /// </summary>
+        internal static string gvwTransactions_commentDataGridViewTextBoxColumn_text {
+            get {
+                return ResourceManager.GetString("gvwTransactions_commentDataGridViewTextBoxColumn_text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Amount.
+        /// </summary>
+        internal static string gvwTransactions_localizedAmountDataGridViewTextBoxColumn_text {
+            get {
+                return ResourceManager.GetString("gvwTransactions_localizedAmountDataGridViewTextBoxColumn_text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Timestamp.
+        /// </summary>
+        internal static string gvwTransactions_timestampDataGridViewTextBoxColumn_text {
+            get {
+                return ResourceManager.GetString("gvwTransactions_timestampDataGridViewTextBoxColumn_text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Type.
+        /// </summary>
+        internal static string gvwTransactions_transTypeDataGridViewTextBoxColumn_text {
+            get {
+                return ResourceManager.GetString("gvwTransactions_transTypeDataGridViewTextBoxColumn_text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Address.
         /// </summary>
         internal static string lblAddress_Text {
@@ -268,11 +376,29 @@ namespace Windows_Uomi_App.Languages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Balance.
+        /// </summary>
+        internal static string lblBalance_Text {
+            get {
+                return ResourceManager.GetString("lblBalance_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Business Name.
         /// </summary>
         internal static string lblBusinessName_Text {
             get {
                 return ResourceManager.GetString("lblBusinessName_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Customer.
+        /// </summary>
+        internal static string lblCustomer_Text {
+            get {
+                return ResourceManager.GetString("lblCustomer_Text", resourceCulture);
             }
         }
         
@@ -367,11 +493,29 @@ namespace Windows_Uomi_App.Languages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Delete Transaction.
+        /// </summary>
+        internal static string mnuItemDeleteTransaction_Text {
+            get {
+                return ResourceManager.GetString("mnuItemDeleteTransaction_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Edit Customer.
         /// </summary>
         internal static string mnuItemEditCustomer_Text {
             get {
                 return ResourceManager.GetString("mnuItemEditCustomer_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Edit Transaction.
+        /// </summary>
+        internal static string mnuItemEditTransaction_Text {
+            get {
+                return ResourceManager.GetString("mnuItemEditTransaction_Text", resourceCulture);
             }
         }
         

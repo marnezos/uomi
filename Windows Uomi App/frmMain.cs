@@ -36,7 +36,7 @@ namespace Windows_Uomi_App
         {
             customerBindingSource.Clear();
             var customers = Data.Customer.ToList(customerSortColumn, customerSortAscending, customerFilter);
-            List<Data.Customer> customerList= new List<Data.Customer>();
+            List<Data.Customer> customerList = new List<Data.Customer>();
 
             foreach (Data.Customer customer in customers)
             {
@@ -76,7 +76,7 @@ namespace Windows_Uomi_App
             {
                 dataEntryForm.CustomerData = retailCustomer;
                 dataEntryForm.ShowDialog();
-                if (dataEntryForm.DialogResult == DialogResult.OK )
+                if (dataEntryForm.DialogResult == DialogResult.OK)
                 {
                     dataEntryForm.CustomerData.Transactions = new List<Data.Transaction>();
                     dataEntryForm.CustomerData.AddToDatabase();
@@ -88,7 +88,7 @@ namespace Windows_Uomi_App
 
         private void gvwCustomers_MouseClick(object sender, MouseEventArgs e)
         {
-            if (e.Button == MouseButtons.Right && gvwCustomers.SelectedRows.Count>0)
+            if (e.Button == MouseButtons.Right && gvwCustomers.SelectedRows.Count > 0)
             {
                 mnuCustomersPopup.Show(gvwCustomers, e.X, e.Y);
             }
@@ -97,11 +97,11 @@ namespace Windows_Uomi_App
         private void mnuItemEditCustomer_Click(object sender, EventArgs e)
         {
             //Get Customer Data from Selected row 
-            var selectedCustomer= gvwCustomers.SelectedRows[0].DataBoundItem;
+            var selectedCustomer = gvwCustomers.SelectedRows[0].DataBoundItem;
 
             using (frmCustomerData dataEntryForm = new frmCustomerData())
             {
-                dataEntryForm.CustomerData = (Data.Customer) selectedCustomer;
+                dataEntryForm.CustomerData = (Data.Customer)selectedCustomer;
                 dataEntryForm.ShowDialog();
                 if (dataEntryForm.DialogResult == DialogResult.OK)
                 {
@@ -116,9 +116,11 @@ namespace Windows_Uomi_App
             //Get Customer Data from Selected row 
             Data.Customer selectedCustomer = (Data.Customer)gvwCustomers.SelectedRows[0].DataBoundItem;
 
-            string deleteConfirmationString= Translator.Instance.Translate("confirm_delete_customer");
+            string deleteConfirmationString = Translator.Instance.Translate("confirm_delete_customer");
+            string deleteConfirmationCaption = Translator.Instance.Translate("confirm_delete_customer_caption");
 
-            if (MessageBox.Show(String.Format(deleteConfirmationString, selectedCustomer.Name),"Delete Customer",MessageBoxButtons.YesNo) == DialogResult.Yes){
+            if (MessageBox.Show(String.Format(deleteConfirmationString, selectedCustomer.Name), deleteConfirmationCaption, MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
                 if (selectedCustomer.DeleteFromDatabase())
                 {
                     tssStatus.Text = String.Format(Translator.Instance.Translate("customer_deleted"), selectedCustomer.Name);
@@ -164,7 +166,8 @@ namespace Windows_Uomi_App
             if (oldSortColumn == customerSortColumn)
             {
                 customerSortAscending = !customerSortAscending;
-            } else
+            }
+            else
             {
                 customerSortAscending = true;
             }
@@ -192,6 +195,65 @@ namespace Windows_Uomi_App
                     RefreshCustomers();
                 }
             }
+        }
+
+        private void mnuItemViewCustomer_Click(object sender, EventArgs e)
+        {
+
+            Data.Customer selectedCustomer = (Data.Customer)gvwCustomers.SelectedRows[0].DataBoundItem;
+            ShowLedgerForm(selectedCustomer);
+        }
+
+        private void gvwCustomers_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            Data.Customer selectedCustomer = (Data.Customer)gvwCustomers.SelectedRows[0].DataBoundItem;
+            ShowLedgerForm(selectedCustomer);
+        }
+
+        private void ShowLedgerForm(Data.Customer Customer)
+        {
+            using (frmCustomerLedger ledgerForm = new frmCustomerLedger())
+            {
+                ledgerForm.CustomerData = Customer;
+                ledgerForm.ShowDialog();
+                RefreshCustomers();
+            }
+        }
+
+        private void mnuItemAddDebit_Click(object sender, EventArgs e)
+        {
+            Data.Customer selectedCustomer = (Data.Customer)gvwCustomers.SelectedRows[0].DataBoundItem;
+
+            using (frmTransaction transactionForm = new frmTransaction())
+            {
+                transactionForm.TransactionData = new Data.Transaction(Data.Transaction.TransactionType.Debit);
+                transactionForm.CustomerName = selectedCustomer.Name;
+                transactionForm.ShowDialog();
+                if (transactionForm.DialogResult == DialogResult.OK)
+                {
+                    if (selectedCustomer.Transactions is null)
+                    {
+                        selectedCustomer.Transactions = new List<Data.Transaction>();
+                    }
+                    selectedCustomer.Transactions.Add(transactionForm.TransactionData);
+                    selectedCustomer.UpdateToDatabase();
+                    RefreshCustomers();
+                }
+            }
+        }
+
+        private void mnuItemEnglish_Click(object sender, EventArgs e)
+        {
+            Translator.Instance.Locale = "en";
+            TranslateForm();
+            RefreshCustomers();
+        }
+
+        private void mnuItemGreek_Click(object sender, EventArgs e)
+        {
+            Translator.Instance.Locale = "el-GR";
+            TranslateForm();
+            RefreshCustomers();
         }
     }
 }

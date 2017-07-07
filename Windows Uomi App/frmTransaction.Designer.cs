@@ -30,7 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmTransaction));
             this.gbxDetails = new System.Windows.Forms.GroupBox();
-            this.txtAmount = new System.Windows.Forms.MaskedTextBox();
+            this.txtAmount = new Windows_Uomi_App.CurrencyTextBox();
             this.lblAmount = new System.Windows.Forms.Label();
             this.lblDate = new System.Windows.Forms.Label();
             this.dtpTransaction = new System.Windows.Forms.DateTimePicker();
@@ -41,6 +41,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
+            this.lblFormattedAmount = new System.Windows.Forms.Label();
             this.gbxDetails.SuspendLayout();
             this.gbxTransactionType.SuspendLayout();
             this.gbxCustomer.SuspendLayout();
@@ -49,6 +50,7 @@
             // 
             // gbxDetails
             // 
+            this.gbxDetails.Controls.Add(this.lblFormattedAmount);
             this.gbxDetails.Controls.Add(this.txtAmount);
             this.gbxDetails.Controls.Add(this.lblAmount);
             this.gbxDetails.Controls.Add(this.lblDate);
@@ -62,13 +64,16 @@
             // 
             // txtAmount
             // 
-            this.txtAmount.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.txtAmount.Location = new System.Drawing.Point(16, 92);
-            this.txtAmount.Mask = "######.00";
+            this.txtAmount.DecimalPlaces = 2;
+            this.txtAmount.DecimalsSeparator = '.';
+            this.txtAmount.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+            this.txtAmount.Location = new System.Drawing.Point(75, 92);
             this.txtAmount.Name = "txtAmount";
-            this.txtAmount.Size = new System.Drawing.Size(285, 26);
-            this.txtAmount.TabIndex = 4;
-            this.txtAmount.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtAmount.PreFix = "$";
+            this.txtAmount.Size = new System.Drawing.Size(100, 26);
+            this.txtAmount.TabIndex = 0;
+            this.txtAmount.ThousandsSeparator = ',';
+            this.txtAmount.TextChanged += new System.EventHandler(this.txtAmount_TextChanged);
             // 
             // lblAmount
             // 
@@ -90,7 +95,8 @@
             // 
             // dtpTransaction
             // 
-            this.dtpTransaction.CustomFormat = "yyyy/MM/dd HH:nn:ss";
+            this.dtpTransaction.CustomFormat = "yyyy/MM/dd HH:mm:ss";
+            this.dtpTransaction.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpTransaction.Location = new System.Drawing.Point(16, 42);
             this.dtpTransaction.Name = "dtpTransaction";
             this.dtpTransaction.Size = new System.Drawing.Size(285, 20);
@@ -170,6 +176,17 @@
             this.btnCancel.TabIndex = 7;
             this.btnCancel.Text = "-Cancel-";
             this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            // 
+            // lblFormattedAmount
+            // 
+            this.lblFormattedAmount.AutoSize = true;
+            this.lblFormattedAmount.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+            this.lblFormattedAmount.Location = new System.Drawing.Point(181, 95);
+            this.lblFormattedAmount.Name = "lblFormattedAmount";
+            this.lblFormattedAmount.Size = new System.Drawing.Size(17, 20);
+            this.lblFormattedAmount.TabIndex = 4;
+            this.lblFormattedAmount.Text = "  ";
             // 
             // frmTransaction
             // 
@@ -209,9 +226,10 @@
         private System.Windows.Forms.Label lblCustomerName;
         private System.Windows.Forms.Label lblDate;
         private System.Windows.Forms.Label lblAmount;
-        private System.Windows.Forms.MaskedTextBox txtAmount;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnCancel;
+        private CurrencyTextBox txtAmount;
+        private System.Windows.Forms.Label lblFormattedAmount;
     }
 }
