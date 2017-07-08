@@ -285,4 +285,13 @@
   <data name="confirm_delete_transaction_caption" xml:space="preserve">
     <value>Delete Transaction</value>
   </data>
+  <data name="mnuItemAbout_Text" xml:space="preserve">
+    <value>About</value>
+  </data>
+  <data name="mnuItemLanguage_Text" xml:space="preserve">
+    <value>Language and Locale</value>
+  </data>
+  <data name="mnuItemSettings_Text" xml:space="preserve">
+    <value>Settings</value>
+  </data>
 </root>

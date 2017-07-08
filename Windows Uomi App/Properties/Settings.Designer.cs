@@ -22,5 +22,17 @@ namespace Windows_Uomi_App.Properties {
                 return defaultInstance;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("en")]
+        public string locale {
+            get {
+                return ((string)(this["locale"]));
+            }
+            set {
+                this["locale"] = value;
+            }
+        }
     }
 }

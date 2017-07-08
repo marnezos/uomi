@@ -23,7 +23,7 @@ namespace Windows_Uomi_App
 
         private void frmMain_Load(object sender, EventArgs e)
         {
-            Translator.Instance.Locale = "en";
+            LoadSettings();
             TranslateForm();
             customerSortColumn = Data.Customer.CustomerColumn.Id;
             customerSortAscending = true;
@@ -31,6 +31,16 @@ namespace Windows_Uomi_App
             RefreshCustomers();
         }
 
+        private void LoadSettings()
+        {
+            Translator.Instance.Locale = Properties.Settings.Default["locale"].ToString();
+        }
+
+        private void SaveSettings()
+        {
+            Properties.Settings.Default["locale"] = Translator.Instance.Locale;
+            Properties.Settings.Default.Save();
+        }
 
         private void RefreshCustomers()
         {
@@ -60,6 +70,9 @@ namespace Windows_Uomi_App
             mnuItemEditCustomer.Text = Translator.Instance.Translate("mnuItemEditCustomer_Text");
             mnuItemDeleteCustomer.Text = Translator.Instance.Translate("mnuItemDeleteCustomer_Text");
             mnuItemViewCustomer.Text = Translator.Instance.Translate("mnuItemViewCustomer_Text");
+            mnuItemAbout.Text = Translator.Instance.Translate("mnuItemAbout_Text");
+            mnuItemSettings.Text = Translator.Instance.Translate("mnuItemSettings_Text");
+            mnuItemLanguage.Text = Translator.Instance.Translate("mnuItemLanguage_Text");
             gvwCustomers.Columns["idDataGridViewTextBoxColumn"].HeaderText = Translator.Instance.Translate("gvwCustomers_idDataGridViewTextBoxColumn_text");
             gvwCustomers.Columns["nameDataGridViewTextBoxColumn"].HeaderText = Translator.Instance.Translate("gvwCustomers_nameDataGridViewTextBoxColumn_text");
             gvwCustomers.Columns["phonenumberDataGridViewTextBoxColumn"].HeaderText = Translator.Instance.Translate("gvwCustomers_phonenumberDataGridViewTextBoxColumn_text");
@@ -247,6 +260,7 @@ namespace Windows_Uomi_App
             Translator.Instance.Locale = "en";
             TranslateForm();
             RefreshCustomers();
+            SaveSettings();
         }
 
         private void mnuItemGreek_Click(object sender, EventArgs e)
@@ -254,6 +268,7 @@ namespace Windows_Uomi_App
             Translator.Instance.Locale = "el-GR";
             TranslateForm();
             RefreshCustomers();
+            SaveSettings();
         }
     }
 }

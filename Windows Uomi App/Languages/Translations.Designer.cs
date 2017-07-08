@@ -448,6 +448,15 @@ namespace Windows_Uomi_App.Languages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to About.
+        /// </summary>
+        internal static string mnuItemAbout_Text {
+            get {
+                return ResourceManager.GetString("mnuItemAbout_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Add Credit (We owe money to the customer).
         /// </summary>
         internal static string mnuItemAddCredit_Text {
@@ -516,6 +525,24 @@ namespace Windows_Uomi_App.Languages {
         internal static string mnuItemEditTransaction_Text {
             get {
                 return ResourceManager.GetString("mnuItemEditTransaction_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Language and Locale.
+        /// </summary>
+        internal static string mnuItemLanguage_Text {
+            get {
+                return ResourceManager.GetString("mnuItemLanguage_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Settings.
+        /// </summary>
+        internal static string mnuItemSettings_Text {
+            get {
+                return ResourceManager.GetString("mnuItemSettings_Text", resourceCulture);
             }
         }
         
