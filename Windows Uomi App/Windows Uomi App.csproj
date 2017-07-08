@@ -61,6 +61,7 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -79,6 +80,7 @@
     <Compile Include="Data\RetailCustomer.cs" />
     <Compile Include="Data\Transaction.cs" />
     <Compile Include="Data\WholesaleCustomer.cs" />
+    <Compile Include="DBUtil.cs" />
     <Compile Include="frmCustomerData.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -103,6 +105,18 @@
     <Compile Include="frmTransaction.Designer.cs">
       <DependentUpon>frmTransaction.cs</DependentUpon>
     </Compile>
+    <Compile Include="IUomiDBExporter.cs" />
+    <Compile Include="JsonDBExporter.cs" />
+    <Compile Include="Languages\Translations.el-GR.Designer.cs">
+      <DependentUpon>Translations.el-GR.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Languages\Translations.en-UK.Designer.cs">
+      <DependentUpon>Translations.en-UK.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <Compile Include="Languages\Translations.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -123,7 +137,14 @@
     <EmbeddedResource Include="frmTransaction.resx">
       <DependentUpon>frmTransaction.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Languages\Translations.el-GR.resx" />
+    <EmbeddedResource Include="Languages\Translations.el-GR.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Translations.el-GR.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Languages\Translations.en-UK.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Translations.en-UK.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Languages\Translations.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Translations.Designer.cs</LastGenOutput>

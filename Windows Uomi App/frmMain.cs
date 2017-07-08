@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace Windows_Uomi_App
 {
     public partial class frmMain : Form
@@ -44,6 +45,9 @@ namespace Windows_Uomi_App
 
         private void RefreshCustomers()
         {
+            int savedRow = 0;
+            if (gvwCustomers.Rows.Count > 0) savedRow = gvwCustomers.FirstDisplayedCell.RowIndex;
+
             customerBindingSource.Clear();
             var customers = Data.Customer.ToList(customerSortColumn, customerSortAscending, customerFilter);
             List<Data.Customer> customerList = new List<Data.Customer>();
@@ -53,7 +57,8 @@ namespace Windows_Uomi_App
                 customerList.Add(customer);
             }
             customerBindingSource.DataSource = customerList;
-            //customerBindingSource.DataSource = customerList.OrderBy(x => x.GetType().GetProperty(sortBy).GetValue(x, null));
+
+            if (savedRow != 0 && savedRow < gvwCustomers.Rows.Count) gvwCustomers.FirstDisplayedScrollingRowIndex = savedRow;
 
         }
 
@@ -78,7 +83,9 @@ namespace Windows_Uomi_App
             gvwCustomers.Columns["phonenumberDataGridViewTextBoxColumn"].HeaderText = Translator.Instance.Translate("gvwCustomers_phonenumberDataGridViewTextBoxColumn_text");
             gvwCustomers.Columns["addressDataGridViewTextBoxColumn"].HeaderText = Translator.Instance.Translate("gvwCustomers_addressDataGridViewTextBoxColumn_text");
             gvwCustomers.Columns["balanceDataGridViewTextBoxColumn"].HeaderText = Translator.Instance.Translate("gvwCustomers_balanceDataGridViewTextBoxColumn_text");
-
+            gbxFilter.Text = Translator.Instance.Translate("gbxFilter_text");
+            btnClearFilter.Text = Translator.Instance.Translate("btnClearFilter_text");
+            mnuItemExport2Json.Text = Translator.Instance.Translate("mnuItemExport2Json_text");
         }
 
         private void mnuItemAddCustomer_Click(object sender, EventArgs e)
@@ -257,18 +264,48 @@ namespace Windows_Uomi_App
 
         private void mnuItemEnglish_Click(object sender, EventArgs e)
         {
-            Translator.Instance.Locale = "en";
+            ChangeLocale("en-US");
+        }
+
+        private void mnuItemGreek_Click(object sender, EventArgs e)
+        {
+            ChangeLocale("el-GR");
+        }
+
+        private void englishUKToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ChangeLocale("en-GB");
+        }
+
+        private void ChangeLocale(string newLocale)
+        {
+            Translator.Instance.Locale = newLocale;
             TranslateForm();
             RefreshCustomers();
             SaveSettings();
         }
 
-        private void mnuItemGreek_Click(object sender, EventArgs e)
+        private void mnuItemExport2Json_Click(object sender, EventArgs e)
         {
-            Translator.Instance.Locale = "el-GR";
-            TranslateForm();
-            RefreshCustomers();
-            SaveSettings();
+            saveFileDialog1.DefaultExt = ".json";
+            if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                string fileName = saveFileDialog1.FileName;
+                DBUtil dbUtil = new DBUtil();
+
+                if (dbUtil.Export(new JsonDBExporter(), Data.Customer.ToList(customerSortColumn, customerSortAscending, ""), fileName))
+                {
+                    tssStatus.Text = Translator.Instance.Translate("db_exported_successfully");
+                }
+                else
+                {
+                    tssStatus.Text = Translator.Instance.Translate("db_export_failed");
+                    MessageBox.Show(Translator.Instance.Translate("db_export_failed"), Translator.Instance.Translate("error"), MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+            }
         }
+
+
     }
 }

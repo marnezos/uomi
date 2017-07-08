@@ -65,6 +65,9 @@ namespace Windows_Uomi_App
         private void RefreshLedger()
         {
 
+            int savedRow = 0;
+            if (gvwTransactions.Rows.Count > 0) savedRow = gvwTransactions.FirstDisplayedCell.RowIndex;
+
             transactionBindingSource.Clear();
             IEnumerable<Data.Transaction> transactions = CustomerData.Transactions;
             if (transactions !=null && transactions.Count(x => true) > 0)
@@ -76,6 +79,8 @@ namespace Windows_Uomi_App
             {
                 gvwTransactions.Rows.Clear();
             }
+
+            if (savedRow != 0 && savedRow < gvwTransactions.Rows.Count) gvwTransactions.FirstDisplayedScrollingRowIndex = savedRow;
 
         }
 

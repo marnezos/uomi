@@ -43,10 +43,15 @@ namespace Windows_Uomi_App.Data
                 return Translator.Instance.LocalizeCurrency(fTotal);
             }
         }
+
         public abstract string Name { get; }
 
+        public Customer()
+        {
 
-        public static IEnumerable<Customer> ToList(CustomerColumn orderBy, bool Ascending, string filter="")
+        }
+
+        public static IEnumerable<Customer> ToList(CustomerColumn orderBy, bool ascending, string filter="")
         {
             using (var db = new LiteDB.LiteDatabase(AppDomain.CurrentDomain.BaseDirectory + @"\uomi.db"))
             {
@@ -67,19 +72,19 @@ namespace Windows_Uomi_App.Data
                 switch (orderBy)
                 {
                     case CustomerColumn.Id:
-                        retCustomers = Ascending? retCustomers.OrderBy(x => x.Id): retCustomers.OrderByDescending(x => x.Id);
+                        retCustomers = ascending ? retCustomers.OrderBy(x => x.Id): retCustomers.OrderByDescending(x => x.Id);
                         break;
                     case CustomerColumn.Name:
-                        retCustomers = Ascending ? retCustomers.OrderBy(x => x.Name) : retCustomers.OrderByDescending(x => x.Name);
+                        retCustomers = ascending ? retCustomers.OrderBy(x => x.Name) : retCustomers.OrderByDescending(x => x.Name);
                         break;
                     case CustomerColumn.Address:
-                        retCustomers = Ascending ? retCustomers.OrderBy(x => x.Address) : retCustomers.OrderByDescending(x => x.Address);
+                        retCustomers = ascending ? retCustomers.OrderBy(x => x.Address) : retCustomers.OrderByDescending(x => x.Address);
                         break;
                     case CustomerColumn.Phonenumber:
-                        retCustomers = Ascending ? retCustomers.OrderBy(x => x.Phonenumber) : retCustomers.OrderByDescending(x => x.Phonenumber);
+                        retCustomers = ascending ? retCustomers.OrderBy(x => x.Phonenumber) : retCustomers.OrderByDescending(x => x.Phonenumber);
                         break;
                     case CustomerColumn.Balance:
-                        retCustomers = Ascending ? retCustomers.OrderBy(x => x.Balance) : retCustomers.OrderByDescending(x => x.Balance);
+                        retCustomers = ascending ? retCustomers.OrderBy(x => x.Balance) : retCustomers.OrderByDescending(x => x.Balance);
                         break;
                 }
                 return retCustomers;

@@ -111,9 +111,9 @@
             // 
             // txtLastName
             // 
-            this.txtLastName.Location = new System.Drawing.Point(106, 47);
+            this.txtLastName.Location = new System.Drawing.Point(120, 47);
             this.txtLastName.Name = "txtLastName";
-            this.txtLastName.Size = new System.Drawing.Size(316, 20);
+            this.txtLastName.Size = new System.Drawing.Size(302, 20);
             this.txtLastName.TabIndex = 4;
             // 
             // lblLastName
@@ -127,9 +127,9 @@
             // 
             // txtFirstName
             // 
-            this.txtFirstName.Location = new System.Drawing.Point(106, 21);
+            this.txtFirstName.Location = new System.Drawing.Point(120, 21);
             this.txtFirstName.Name = "txtFirstName";
-            this.txtFirstName.Size = new System.Drawing.Size(316, 20);
+            this.txtFirstName.Size = new System.Drawing.Size(302, 20);
             this.txtFirstName.TabIndex = 2;
             // 
             // lblFirstName
@@ -158,9 +158,9 @@
             // 
             // txtVatNumber
             // 
-            this.txtVatNumber.Location = new System.Drawing.Point(106, 47);
+            this.txtVatNumber.Location = new System.Drawing.Point(120, 47);
             this.txtVatNumber.Name = "txtVatNumber";
-            this.txtVatNumber.Size = new System.Drawing.Size(316, 20);
+            this.txtVatNumber.Size = new System.Drawing.Size(302, 20);
             this.txtVatNumber.TabIndex = 6;
             // 
             // lblVatNumber
@@ -174,9 +174,9 @@
             // 
             // txtBusinessName
             // 
-            this.txtBusinessName.Location = new System.Drawing.Point(106, 21);
+            this.txtBusinessName.Location = new System.Drawing.Point(120, 21);
             this.txtBusinessName.Name = "txtBusinessName";
-            this.txtBusinessName.Size = new System.Drawing.Size(316, 20);
+            this.txtBusinessName.Size = new System.Drawing.Size(302, 20);
             this.txtBusinessName.TabIndex = 4;
             // 
             // lblBusinessName
@@ -204,16 +204,16 @@
             // 
             // txtPhonenumber
             // 
-            this.txtPhonenumber.Location = new System.Drawing.Point(106, 47);
+            this.txtPhonenumber.Location = new System.Drawing.Point(120, 47);
             this.txtPhonenumber.Name = "txtPhonenumber";
-            this.txtPhonenumber.Size = new System.Drawing.Size(316, 20);
+            this.txtPhonenumber.Size = new System.Drawing.Size(302, 20);
             this.txtPhonenumber.TabIndex = 8;
             // 
             // txtAddress
             // 
-            this.txtAddress.Location = new System.Drawing.Point(106, 21);
+            this.txtAddress.Location = new System.Drawing.Point(120, 21);
             this.txtAddress.Name = "txtAddress";
-            this.txtAddress.Size = new System.Drawing.Size(316, 20);
+            this.txtAddress.Size = new System.Drawing.Size(302, 20);
             this.txtAddress.TabIndex = 7;
             // 
             // lblPhonenumber

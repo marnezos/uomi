@@ -70,6 +70,15 @@ namespace Windows_Uomi_App.Languages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Clear filter.
+        /// </summary>
+        internal static string btnClearFilter_text {
+            get {
+                return ResourceManager.GetString("btnClearFilter_text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Save.
         /// </summary>
         internal static string btnSave_Text {
@@ -138,6 +147,24 @@ namespace Windows_Uomi_App.Languages {
         internal static string customer_deleted {
             get {
                 return ResourceManager.GetString("customer_deleted", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to DB Export Failed!.
+        /// </summary>
+        internal static string db_export_failed {
+            get {
+                return ResourceManager.GetString("db_export_failed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to DB Exported Successfully!.
+        /// </summary>
+        internal static string db_exported_successfully {
+            get {
+                return ResourceManager.GetString("db_exported_successfully", resourceCulture);
             }
         }
         
@@ -246,6 +273,15 @@ namespace Windows_Uomi_App.Languages {
         internal static string gbxDetails_Text {
             get {
                 return ResourceManager.GetString("gbxDetails_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Filter.
+        /// </summary>
+        internal static string gbxFilter_text {
+            get {
+                return ResourceManager.GetString("gbxFilter_text", resourceCulture);
             }
         }
         
@@ -525,6 +561,15 @@ namespace Windows_Uomi_App.Languages {
         internal static string mnuItemEditTransaction_Text {
             get {
                 return ResourceManager.GetString("mnuItemEditTransaction_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Export to .json file.
+        /// </summary>
+        internal static string mnuItemExport2Json_text {
+            get {
+                return ResourceManager.GetString("mnuItemExport2Json_text", resourceCulture);
             }
         }
         

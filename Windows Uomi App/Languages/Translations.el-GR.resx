@@ -117,7 +117,196 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="btnCancel_Text" xml:space="preserve">
+    <value>Άκυρο</value>
+  </data>
+  <data name="btnSave_Text" xml:space="preserve">
+    <value>Αποθήκευση</value>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>Κλείσιμο</value>
+  </data>
+  <data name="confirm_delete_customer" xml:space="preserve">
+    <value>Να διαγραφεί ο πελάτης: '{0}';</value>
+  </data>
+  <data name="confirm_delete_customer_caption" xml:space="preserve">
+    <value>Διαγραφή πελάτη</value>
+  </data>
+  <data name="credit" xml:space="preserve">
+    <value>Πίστωση</value>
+  </data>
+  <data name="customer_deleted" xml:space="preserve">
+    <value>Ο πελάτης '{0}' διεγράφη επιτυχώς.</value>
+  </data>
+  <data name="debit" xml:space="preserve">
+    <value>Χρέωση</value>
+  </data>
+  <data name="Erroneous_Amount" xml:space="preserve">
+    <value>Ελέγξτε την ορθότητα του ποσού που εισάγατε</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>Σφάλμα</value>
+  </data>
+  <data name="frmCustomerData_Caption" xml:space="preserve">
+    <value>Στοιχεία πελάτη</value>
+  </data>
+  <data name="frmCustomerLedger_Caption" xml:space="preserve">
+    <value>Κατάστιχο πελάτη</value>
+  </data>
   <data name="frmMain_Caption" xml:space="preserve">
-    <value>Uomi - Αφού μου χρωστάς!</value>
+    <value>Uomi - Γιατί μου χρωστάς!</value>
+  </data>
+  <data name="frmTransaction_Caption" xml:space="preserve">
+    <value>Συναλλαγή</value>
+  </data>
+  <data name="gbxConctactData_Text" xml:space="preserve">
+    <value>Στοιχεία επαφής</value>
+  </data>
+  <data name="gbxCustomerData_Text" xml:space="preserve">
+    <value>Στοιχεία πελάτη</value>
+  </data>
+  <data name="gbxCustomerType_Text" xml:space="preserve">
+    <value>Τύπος πελάτη</value>
+  </data>
+  <data name="gbxCustomer_Text" xml:space="preserve">
+    <value>Πελάτης</value>
+  </data>
+  <data name="gbxDetails_Text" xml:space="preserve">
+    <value>Λεπτομέρειες</value>
+  </data>
+  <data name="gbxRetailData_Text" xml:space="preserve">
+    <value>Στοιχεία λιανικής</value>
+  </data>
+  <data name="gbxTransactionType_Text" xml:space="preserve">
+    <value>Τύπος συναλλαγής</value>
+  </data>
+  <data name="gbxWholesaleData_Text" xml:space="preserve">
+    <value>Στοιχεία χονδρικής</value>
+  </data>
+  <data name="gvwCustomers_addressDataGridViewTextBoxColumn_text" xml:space="preserve">
+    <value>Διεύθυνση</value>
+  </data>
+  <data name="gvwCustomers_balanceDataGridViewTextBoxColumn_text" xml:space="preserve">
+    <value>Ισοζύγιο</value>
+  </data>
+  <data name="gvwCustomers_idDataGridViewTextBoxColumn_text" xml:space="preserve">
+    <value>ID Πελάτη</value>
+  </data>
+  <data name="gvwCustomers_nameDataGridViewTextBoxColumn_text" xml:space="preserve">
+    <value>Όνομα</value>
+  </data>
+  <data name="gvwCustomers_phonenumberDataGridViewTextBoxColumn_text" xml:space="preserve">
+    <value>Τηλέφωνο</value>
+  </data>
+  <data name="gvwTransactions_commentDataGridViewTextBoxColumn_text" xml:space="preserve">
+    <value>Σχόλιο</value>
+  </data>
+  <data name="gvwTransactions_localizedAmountDataGridViewTextBoxColumn_text" xml:space="preserve">
+    <value>Ποσό</value>
+  </data>
+  <data name="gvwTransactions_timestampDataGridViewTextBoxColumn_text" xml:space="preserve">
+    <value>Ημ/νια ώρα</value>
+  </data>
+  <data name="gvwTransactions_transTypeDataGridViewTextBoxColumn_text" xml:space="preserve">
+    <value>Τύπος</value>
+  </data>
+  <data name="lblAddress_Text" xml:space="preserve">
+    <value>Διεύθυνση</value>
+  </data>
+  <data name="lblAmount_Text" xml:space="preserve">
+    <value>Ποσό</value>
+  </data>
+  <data name="lblBalance_Text" xml:space="preserve">
+    <value>Ισοζύγιο</value>
+  </data>
+  <data name="lblBusinessName_Text" xml:space="preserve">
+    <value>Όνομα επιχείρισης</value>
+  </data>
+  <data name="lblCustomer_Text" xml:space="preserve">
+    <value>Πελάτης</value>
+  </data>
+  <data name="lblDate_Text" xml:space="preserve">
+    <value>Ημ/νια συναλλαγής</value>
+  </data>
+  <data name="lblFirstName_Text" xml:space="preserve">
+    <value>Όνομα</value>
+  </data>
+  <data name="lblLastName_Text" xml:space="preserve">
+    <value>Επώνυμο</value>
+  </data>
+  <data name="lblPhonenumber_Text" xml:space="preserve">
+    <value>Τηλέφωνο</value>
+  </data>
+  <data name="lblVatNumber_Text" xml:space="preserve">
+    <value>ΑΦΜ</value>
+  </data>
+  <data name="mnuItemAddCredit_Text" xml:space="preserve">
+    <value>Προσθήκη πίστωσης (εμείς χρωστάμε στον πελάτη)</value>
+  </data>
+  <data name="mnuItemAddCustomer_Text" xml:space="preserve">
+    <value>Προσθήκη πελάτη</value>
+  </data>
+  <data name="mnuItemAddDebit_Text" xml:space="preserve">
+    <value>Προσθήκη χρέωσης (ο πελάτης χρωστάει σε εμάς)</value>
+  </data>
+  <data name="mnuItemCustomers_Text" xml:space="preserve">
+    <value>Πελάτες</value>
+  </data>
+  <data name="mnuItemDeleteCustomer_Text" xml:space="preserve">
+    <value>Διαγαφή πελάτη</value>
+  </data>
+  <data name="mnuItemDeleteTransaction_Text" xml:space="preserve">
+    <value>Διαγραφή συναλλαγής</value>
+  </data>
+  <data name="mnuItemEditCustomer_Text" xml:space="preserve">
+    <value>Επεξεργασία πελάτη</value>
+  </data>
+  <data name="mnuItemEditTransaction_Text" xml:space="preserve">
+    <value>Επεξεργασία συναλλαγής</value>
+  </data>
+  <data name="mnuItemTransaction_Text" xml:space="preserve">
+    <value>Συναλλαγή</value>
+  </data>
+  <data name="mnuItemViewCustomer_Text" xml:space="preserve">
+    <value>Προβολή πελάτη</value>
+  </data>
+  <data name="rdbRetail_Text" xml:space="preserve">
+    <value>Πελάτης λιανικής</value>
+  </data>
+  <data name="rdbWholesale_Text" xml:space="preserve">
+    <value>Πελάτης χονδρικής</value>
+  </data>
+  <data name="tbpCustomers_Text" xml:space="preserve">
+    <value>Πελάτες</value>
+  </data>
+  <data name="confirm_delete_transaction" xml:space="preserve">
+    <value>Να διαγραφεί η συναλλαγή στις '{0}' των {1}?</value>
+  </data>
+  <data name="confirm_delete_transaction_caption" xml:space="preserve">
+    <value>Διαγραφή συναλλαγής</value>
+  </data>
+  <data name="mnuItemAbout_Text" xml:space="preserve">
+    <value>Σχετικά</value>
+  </data>
+  <data name="mnuItemLanguage_Text" xml:space="preserve">
+    <value>Γλώσσα και τοποθεσία</value>
+  </data>
+  <data name="mnuItemSettings_Text" xml:space="preserve">
+    <value>Ρυθμίσεις</value>
+  </data>
+  <data name="db_exported_successfully" xml:space="preserve">
+    <value>Η εξαγωγή της βάσης ολοκληρώθηκε με επιτυχία</value>
+  </data>
+  <data name="db_export_failed" xml:space="preserve">
+    <value>Η εξαγωγή της βάσης απέτυχε!</value>
+  </data>
+  <data name="btnClearFilter_text" xml:space="preserve">
+    <value>Καθαρισμός φίλτρου</value>
+  </data>
+  <data name="gbxFilter_text" xml:space="preserve">
+    <value>Φίλτρο</value>
+  </data>
+  <data name="mnuItemExport2Json_text" xml:space="preserve">
+    <value>Εξαγωγή σε αρχείο .json</value>
   </data>
 </root>

@@ -60,6 +60,9 @@
             this.mnuItemViewCustomer = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuItemEditCustomer = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuItemDeleteCustomer = new System.Windows.Forms.ToolStripMenuItem();
+            this.englishUKToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuItemExport2Json = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.statusMain.SuspendLayout();
             this.tbcMain.SuspendLayout();
             this.tbpCustomers.SuspendLayout();
@@ -238,7 +241,8 @@
             // mnuItemSettings
             // 
             this.mnuItemSettings.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.mnuItemLanguage});
+            this.mnuItemLanguage,
+            this.mnuItemExport2Json});
             this.mnuItemSettings.Name = "mnuItemSettings";
             this.mnuItemSettings.Size = new System.Drawing.Size(71, 20);
             this.mnuItemSettings.Text = "-Settings-";
@@ -247,9 +251,10 @@
             // 
             this.mnuItemLanguage.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mnuItemEnglish,
+            this.englishUKToolStripMenuItem,
             this.mnuItemGreek});
             this.mnuItemLanguage.Name = "mnuItemLanguage";
-            this.mnuItemLanguage.Size = new System.Drawing.Size(152, 22);
+            this.mnuItemLanguage.Size = new System.Drawing.Size(197, 22);
             this.mnuItemLanguage.Text = "-Language-";
             // 
             // mnuItemEnglish
@@ -332,6 +337,20 @@
             this.mnuItemDeleteCustomer.Text = "-Delete Customer-";
             this.mnuItemDeleteCustomer.Click += new System.EventHandler(this.mnuItemDeleteCustomer_Click);
             // 
+            // englishUKToolStripMenuItem
+            // 
+            this.englishUKToolStripMenuItem.Name = "englishUKToolStripMenuItem";
+            this.englishUKToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.englishUKToolStripMenuItem.Text = "English (UK)";
+            this.englishUKToolStripMenuItem.Click += new System.EventHandler(this.englishUKToolStripMenuItem_Click);
+            // 
+            // mnuItemExport2Json
+            // 
+            this.mnuItemExport2Json.Name = "mnuItemExport2Json";
+            this.mnuItemExport2Json.Size = new System.Drawing.Size(197, 22);
+            this.mnuItemExport2Json.Text = "-Export db to .json File-";
+            this.mnuItemExport2Json.Click += new System.EventHandler(this.mnuItemExport2Json_Click);
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -394,6 +413,9 @@
         private System.Windows.Forms.ToolStripMenuItem mnuItemLanguage;
         private System.Windows.Forms.ToolStripMenuItem mnuItemEnglish;
         private System.Windows.Forms.ToolStripMenuItem mnuItemGreek;
+        private System.Windows.Forms.ToolStripMenuItem englishUKToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem mnuItemExport2Json;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
     }
 }
 
