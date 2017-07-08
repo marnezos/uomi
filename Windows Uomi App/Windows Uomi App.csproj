@@ -180,6 +180,9 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="uomi.db">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -198,7 +201,11 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <Content Include="Media\pexels-photo-210990-cropped.jpg" />
+    <Content Include="Media\pexels-photo-210990.jpeg" />
     <Content Include="Media\uomi.ico" />
+    <Content Include="Media\uomi.png" />
+    <Content Include="Media\uomi.svg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
