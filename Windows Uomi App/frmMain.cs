@@ -306,6 +306,12 @@ namespace Windows_Uomi_App
             }
         }
 
-
+        private void mnuItemAbout_Click(object sender, EventArgs e)
+        {
+            using (frmAbout aboutForm = new frmAbout())
+            {
+                aboutForm.ShowDialog();
+            }
+        }
     }
 }

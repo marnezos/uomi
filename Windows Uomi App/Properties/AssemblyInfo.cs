@@ -6,11 +6,11 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("Windows Uomi App")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("Simple app to keep track of customers and how much they owe you, or how much you owe them. This application was written as a deliverable to module SE4S703 coursework (University of South Wales). It uses LiteDB for persistence and has multilingual support.")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("https://github.com/marnezos/uomi")]
 [assembly: AssemblyProduct("Windows Uomi App")]
-[assembly: AssemblyCopyright("Copyright ©  2017")]
+[assembly: AssemblyCopyright("This app is in the public domain")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

@@ -196,6 +196,15 @@ namespace Windows_Uomi_App.Languages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to About.
+        /// </summary>
+        internal static string frmAbout_Caption {
+            get {
+                return ResourceManager.GetString("frmAbout_Caption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Customer Data.
         /// </summary>
         internal static string frmCustomerData_Caption {

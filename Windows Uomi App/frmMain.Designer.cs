@@ -50,7 +50,9 @@
             this.mnuItemSettings = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuItemLanguage = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuItemEnglish = new System.Windows.Forms.ToolStripMenuItem();
+            this.englishUKToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuItemGreek = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuItemExport2Json = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuItemAbout = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuCustomersPopup = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.mnuItemTransaction = new System.Windows.Forms.ToolStripMenuItem();
@@ -60,8 +62,6 @@
             this.mnuItemViewCustomer = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuItemEditCustomer = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuItemDeleteCustomer = new System.Windows.Forms.ToolStripMenuItem();
-            this.englishUKToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuItemExport2Json = new System.Windows.Forms.ToolStripMenuItem();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.statusMain.SuspendLayout();
             this.tbcMain.SuspendLayout();
@@ -260,22 +260,37 @@
             // mnuItemEnglish
             // 
             this.mnuItemEnglish.Name = "mnuItemEnglish";
-            this.mnuItemEnglish.Size = new System.Drawing.Size(152, 22);
+            this.mnuItemEnglish.Size = new System.Drawing.Size(138, 22);
             this.mnuItemEnglish.Text = "English (US)";
             this.mnuItemEnglish.Click += new System.EventHandler(this.mnuItemEnglish_Click);
+            // 
+            // englishUKToolStripMenuItem
+            // 
+            this.englishUKToolStripMenuItem.Name = "englishUKToolStripMenuItem";
+            this.englishUKToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
+            this.englishUKToolStripMenuItem.Text = "English (UK)";
+            this.englishUKToolStripMenuItem.Click += new System.EventHandler(this.englishUKToolStripMenuItem_Click);
             // 
             // mnuItemGreek
             // 
             this.mnuItemGreek.Name = "mnuItemGreek";
-            this.mnuItemGreek.Size = new System.Drawing.Size(152, 22);
+            this.mnuItemGreek.Size = new System.Drawing.Size(138, 22);
             this.mnuItemGreek.Text = "Ελληνικά";
             this.mnuItemGreek.Click += new System.EventHandler(this.mnuItemGreek_Click);
+            // 
+            // mnuItemExport2Json
+            // 
+            this.mnuItemExport2Json.Name = "mnuItemExport2Json";
+            this.mnuItemExport2Json.Size = new System.Drawing.Size(197, 22);
+            this.mnuItemExport2Json.Text = "-Export db to .json File-";
+            this.mnuItemExport2Json.Click += new System.EventHandler(this.mnuItemExport2Json_Click);
             // 
             // mnuItemAbout
             // 
             this.mnuItemAbout.Name = "mnuItemAbout";
             this.mnuItemAbout.Size = new System.Drawing.Size(62, 20);
             this.mnuItemAbout.Text = "-About-";
+            this.mnuItemAbout.Click += new System.EventHandler(this.mnuItemAbout_Click);
             // 
             // mnuCustomersPopup
             // 
@@ -336,20 +351,6 @@
             this.mnuItemDeleteCustomer.Size = new System.Drawing.Size(172, 22);
             this.mnuItemDeleteCustomer.Text = "-Delete Customer-";
             this.mnuItemDeleteCustomer.Click += new System.EventHandler(this.mnuItemDeleteCustomer_Click);
-            // 
-            // englishUKToolStripMenuItem
-            // 
-            this.englishUKToolStripMenuItem.Name = "englishUKToolStripMenuItem";
-            this.englishUKToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.englishUKToolStripMenuItem.Text = "English (UK)";
-            this.englishUKToolStripMenuItem.Click += new System.EventHandler(this.englishUKToolStripMenuItem_Click);
-            // 
-            // mnuItemExport2Json
-            // 
-            this.mnuItemExport2Json.Name = "mnuItemExport2Json";
-            this.mnuItemExport2Json.Size = new System.Drawing.Size(197, 22);
-            this.mnuItemExport2Json.Text = "-Export db to .json File-";
-            this.mnuItemExport2Json.Click += new System.EventHandler(this.mnuItemExport2Json_Click);
             // 
             // frmMain
             // 
