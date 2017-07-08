@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Windows_Uomi_App.Data.Customer">
+    <Position X="0.5" Y="0.5" Width="2" />
+    <Compartments>
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
+    <NestedTypes>
+      <Enum Name="Windows_Uomi_App.Data.Customer.CustomerColumn">
+        <TypeIdentifier>
+          <NewMemberFileName>Data\Customer.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AASCAAAAAAAAAAAAAAgAQAQAAAAAAAAiAAgAAAAAAAA=</HashCode>
+      <FileName>Data\Customer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Windows_Uomi_App.Data.RetailCustomer">
+    <Position X="2.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAg=</HashCode>
+      <FileName>Data\RetailCustomer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Windows_Uomi_App.Data.Transaction">
+    <Position X="3.5" Y="0.5" Width="2" />
+    <Compartments>
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
+    <NestedTypes>
+      <Enum Name="Windows_Uomi_App.Data.Transaction.TransactionType">
+        <TypeIdentifier>
+          <NewMemberFileName>Data\Transaction.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAACAAAEAAAAAAAAAAACAACAAAQABAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Data\Transaction.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Windows_Uomi_App.Data.WholesaleCustomer">
+    <Position X="4.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAADAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Data\WholesaleCustomer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Windows_Uomi_App.DBUtil">
+    <Position X="5.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DBUtil.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Windows_Uomi_App.JsonDBExporter" BaseTypeListCollapsed="true">
+    <Position X="7.5" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>JsonDBExporter.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Windows_Uomi_App.Translator">
+    <Position X="9.5" Y="2.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAQAAAAAAACAQAAAIAAABAAAACQAAEAAAAAAA=</HashCode>
+      <FileName>Translator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Windows_Uomi_App.frmAbout" Collapsed="true">
+    <Position X="5.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>sIAAAAgAACAgCAUAAACAAAADAAAAEIAAAAAAAAAAAAA=</HashCode>
+      <FileName>frmAbout.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Windows_Uomi_App.frmCustomerData" Collapsed="true">
+    <Position X="7.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gACABAAAASAAQAEAAgCJEEkCAABIABAgABAAAyIECAA=</HashCode>
+      <FileName>frmCustomerData.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Windows_Uomi_App.frmCustomerLedger" Collapsed="true">
+    <Position X="9.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAABAAAASAEQIECAACIgAQSBAANRBCQAIIMAQgAACU=</HashCode>
+      <FileName>frmCustomerLedger.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Windows_Uomi_App.frmMain" Collapsed="true">
+    <Position X="11" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BBFEAEBKAOAEAJUi5AKAIAgCCQAEBBCEHAiCK5hCZwQ=</HashCode>
+      <FileName>frmMain.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Windows_Uomi_App.frmTransaction" Collapsed="true">
+    <Position X="5.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAQACAAQANAMACQAGACYgAAABAEAAAIEQIAAAA=</HashCode>
+      <FileName>frmTransaction.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="Windows_Uomi_App.IUomiDBExporter">
+    <Position X="7.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>IUomiDBExporter.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
