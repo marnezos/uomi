@@ -13,6 +13,7 @@ namespace Windows_Uomi_App
 {
     public partial class frmMain : Form
     {
+        //Fields that store the sorting and filtering data for the customer grid
         private Data.Customer.CustomerColumn customerSortColumn;
         private bool customerSortAscending;
         private string customerFilter;
@@ -26,6 +27,8 @@ namespace Windows_Uomi_App
         {
             LoadSettings();
             TranslateForm();
+
+            //Default sorting =by ID ascending and not filtered
             customerSortColumn = Data.Customer.CustomerColumn.Id;
             customerSortAscending = true;
             customerFilter = "";
@@ -43,12 +46,16 @@ namespace Windows_Uomi_App
             Properties.Settings.Default.Save();
         }
 
+        //Refresh customers grid
         private void RefreshCustomers()
         {
+            //Save position
             int savedRow = 0;
             if (gvwCustomers.Rows.Count > 0) savedRow = gvwCustomers.FirstDisplayedCell.RowIndex;
 
             customerBindingSource.Clear();
+
+            //Use the sorting and filtering fields
             var customers = Data.Customer.ToList(customerSortColumn, customerSortAscending, customerFilter);
             List<Data.Customer> customerList = new List<Data.Customer>();
 
@@ -58,6 +65,7 @@ namespace Windows_Uomi_App
             }
             customerBindingSource.DataSource = customerList;
 
+            //Recall position
             if (savedRow != 0 && savedRow < gvwCustomers.Rows.Count) gvwCustomers.FirstDisplayedScrollingRowIndex = savedRow;
 
         }
@@ -90,14 +98,17 @@ namespace Windows_Uomi_App
 
         private void mnuItemAddCustomer_Click(object sender, EventArgs e)
         {
+            //Retrieve selected customer from grid
             Data.RetailCustomer retailCustomer = new Data.RetailCustomer();
 
+            //Pass the selected customer to a new customer data form
             using (frmCustomerData dataEntryForm = new frmCustomerData())
             {
                 dataEntryForm.CustomerData = retailCustomer;
                 dataEntryForm.ShowDialog();
                 if (dataEntryForm.DialogResult == DialogResult.OK)
                 {
+                    //Save 
                     dataEntryForm.CustomerData.Transactions = new List<Data.Transaction>();
                     dataEntryForm.CustomerData.AddToDatabase();
                     RefreshCustomers();
@@ -108,6 +119,7 @@ namespace Windows_Uomi_App
 
         private void gvwCustomers_MouseClick(object sender, MouseEventArgs e)
         {
+            //Show pop up
             if (e.Button == MouseButtons.Right && gvwCustomers.SelectedRows.Count > 0)
             {
                 mnuCustomersPopup.Show(gvwCustomers, e.X, e.Y);
@@ -116,15 +128,17 @@ namespace Windows_Uomi_App
 
         private void mnuItemEditCustomer_Click(object sender, EventArgs e)
         {
-            //Get Customer Data from Selected row 
+            //Retrieve selected customer from grid
             var selectedCustomer = gvwCustomers.SelectedRows[0].DataBoundItem;
 
+            //Pass the selected customer to a new customer data form
             using (frmCustomerData dataEntryForm = new frmCustomerData())
             {
                 dataEntryForm.CustomerData = (Data.Customer)selectedCustomer;
                 dataEntryForm.ShowDialog();
                 if (dataEntryForm.DialogResult == DialogResult.OK)
                 {
+                    //Save any changes
                     dataEntryForm.CustomerData.UpdateToDatabase();
                     RefreshCustomers();
                 }
@@ -133,12 +147,13 @@ namespace Windows_Uomi_App
 
         private void mnuItemDeleteCustomer_Click(object sender, EventArgs e)
         {
-            //Get Customer Data from Selected row 
+            //Retrieve selected customer from grid
             Data.Customer selectedCustomer = (Data.Customer)gvwCustomers.SelectedRows[0].DataBoundItem;
 
             string deleteConfirmationString = Translator.Instance.Translate("confirm_delete_customer");
             string deleteConfirmationCaption = Translator.Instance.Translate("confirm_delete_customer_caption");
 
+            //Delete customer if user confirms acknowledges
             if (MessageBox.Show(String.Format(deleteConfirmationString, selectedCustomer.Name), deleteConfirmationCaption, MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
                 if (selectedCustomer.DeleteFromDatabase())
@@ -150,17 +165,21 @@ namespace Windows_Uomi_App
 
         }
 
+        //Apply filter if text is changed
         private void txtFilter_TextChanged(object sender, EventArgs e)
         {
             customerFilter = txtFilter.Text;
             RefreshCustomers();
         }
 
+        //Clear filter
         private void btnClearFilter_Click(object sender, EventArgs e)
         {
             txtFilter.Text = string.Empty;
         }
 
+
+        //Intercept column header click and sort accordingly
         private void gvwCustomers_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             Data.Customer.CustomerColumn oldSortColumn = customerSortColumn;
@@ -197,8 +216,10 @@ namespace Windows_Uomi_App
 
         private void mnuItemAddCredit_Click(object sender, EventArgs e)
         {
+            //Retrieve selected customer from grid
             Data.Customer selectedCustomer = (Data.Customer)gvwCustomers.SelectedRows[0].DataBoundItem;
 
+            //Pass customer name to the new transaction form along with a new credit transaction
             using (frmTransaction transactionForm = new frmTransaction())
             {
                 transactionForm.TransactionData = new Data.Transaction(Data.Transaction.TransactionType.Credit);
@@ -206,6 +227,7 @@ namespace Windows_Uomi_App
                 transactionForm.ShowDialog();
                 if (transactionForm.DialogResult == DialogResult.OK)
                 {
+                    //Add transaction to the customer's transactions
                     if (selectedCustomer.Transactions is null)
                     {
                         selectedCustomer.Transactions = new List<Data.Transaction>();
@@ -217,19 +239,21 @@ namespace Windows_Uomi_App
             }
         }
 
+        //Show customer's ledger 
         private void mnuItemViewCustomer_Click(object sender, EventArgs e)
         {
-
             Data.Customer selectedCustomer = (Data.Customer)gvwCustomers.SelectedRows[0].DataBoundItem;
             ShowLedgerForm(selectedCustomer);
         }
 
+        //Show customer's ledger on double click
         private void gvwCustomers_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             Data.Customer selectedCustomer = (Data.Customer)gvwCustomers.SelectedRows[0].DataBoundItem;
             ShowLedgerForm(selectedCustomer);
         }
 
+        //Shows the ledger for a customer
         private void ShowLedgerForm(Data.Customer Customer)
         {
             using (frmCustomerLedger ledgerForm = new frmCustomerLedger())
@@ -242,8 +266,10 @@ namespace Windows_Uomi_App
 
         private void mnuItemAddDebit_Click(object sender, EventArgs e)
         {
+            //Retrieve selected customer from grid
             Data.Customer selectedCustomer = (Data.Customer)gvwCustomers.SelectedRows[0].DataBoundItem;
 
+            //Pass customer name to a new transaction form along with a new debit transaction
             using (frmTransaction transactionForm = new frmTransaction())
             {
                 transactionForm.TransactionData = new Data.Transaction(Data.Transaction.TransactionType.Debit);
@@ -251,6 +277,7 @@ namespace Windows_Uomi_App
                 transactionForm.ShowDialog();
                 if (transactionForm.DialogResult == DialogResult.OK)
                 {
+                    //Add transaction to the customer's transactions
                     if (selectedCustomer.Transactions is null)
                     {
                         selectedCustomer.Transactions = new List<Data.Transaction>();
@@ -285,6 +312,7 @@ namespace Windows_Uomi_App
             SaveSettings();
         }
 
+        //Export to json file (for debug purposes)
         private void mnuItemExport2Json_Click(object sender, EventArgs e)
         {
             saveFileDialog1.DefaultExt = ".json";

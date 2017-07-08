@@ -9,12 +9,14 @@ namespace Windows_Uomi_App.Data
 {
     public class Transaction
     {
+
         public enum TransactionType
         {
             Credit,
             Debit
         }
 
+        //Fields for the json document
         [BsonId]
         public int Id { get; set; }
 
@@ -23,6 +25,7 @@ namespace Windows_Uomi_App.Data
         public string Comment { get; set; }
         public TransactionType TransType { get; set; }
 
+        //Localized amount is not to be saved in the json document. It will be computed every time (depending on the selected locale).
         [BsonIgnore]
         public string LocalizedAmount
         {
@@ -34,6 +37,7 @@ namespace Windows_Uomi_App.Data
             }
         }
 
+        //Default constructor sets type = credit       
         public Transaction()
         {
             TransType = TransactionType.Credit;
@@ -43,17 +47,6 @@ namespace Windows_Uomi_App.Data
         {
             TransType = transType;
         }
-
-        //public static IEnumerable<Transaction> ToList()
-        //{
-        //    using (var db = new LiteDB.LiteDatabase(AppDomain.CurrentDomain.BaseDirectory + @"\uomi.db"))
-        //    {
-        //        var col = db.GetCollection<Customer>("customers");
-
-        //        IEnumerable<Customer> retTransactions;
-        //        retTransactions = col.FindAll().OrderBy(x => x.Address);
-        //    }
-        //}
 
     }
 }

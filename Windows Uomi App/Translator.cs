@@ -10,6 +10,7 @@ namespace Windows_Uomi_App
 {
     class Translator
     {
+        //Singleton object for helping with the translations
 
         private static Translator _instance;
         private ResourceManager _resourceManager;

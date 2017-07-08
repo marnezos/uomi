@@ -13,7 +13,7 @@ namespace Windows_Uomi_App
 {
     public partial class frmTransaction : Form
     {
-
+        //Every transaction form has an underlying transaction  object
         public Data.Transaction TransactionData { get; set; }
         public string CustomerName { get; set; }
 
@@ -31,6 +31,7 @@ namespace Windows_Uomi_App
             UpdateInterface();
         }
 
+        //Object -> User interface
         private void UpdateInterface()
         {
             if (TransactionData.TransType == Data.Transaction.TransactionType.Credit)
@@ -55,6 +56,7 @@ namespace Windows_Uomi_App
 
         }
 
+        //User interface -> Object
         private void UpdateTransactionData()
         {
             TransactionData.Amount = int.Parse(txtAmount.WorkingText.Replace(",", "").Replace(".", ""));
@@ -83,6 +85,7 @@ namespace Windows_Uomi_App
         {
             int i;
             
+            //Sanity check
             if (int.TryParse(txtAmount.WorkingText.Replace(",", "").Replace(".", ""), out i))
             {
                 UpdateTransactionData();

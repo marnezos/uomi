@@ -110,7 +110,6 @@ namespace Windows_Uomi_App
         private void TranslateForm()
         {
             this.Text = Translator.Instance.Translate("frmAbout_Caption");
-            
         }
     }
 }

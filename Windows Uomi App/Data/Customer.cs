@@ -10,18 +10,20 @@ namespace Windows_Uomi_App.Data
 {
     public abstract class Customer
     {
-
+        // To be used when sorting
         public enum CustomerColumn { Id, Address, Phonenumber, Name, Balance }
 
+        // Fields to store in json document
         [BsonId]
         public int Id { get; set; }
 
         public string Address { get; set; }
         public string Phonenumber { get; set; }
 
+        // Each customer has a list of transactions
         public List<Transaction> Transactions { get; set; }
 
-
+        // Balance is not to be saved in the json document, it will be computed every time
         [BsonIgnore]
         public string Balance
         {
@@ -30,13 +32,14 @@ namespace Windows_Uomi_App.Data
                 int total;
                 if (Transactions != null && Transactions.Count > 0)
                 {
-                    total= Transactions.Sum(item => item.Amount);
+                    total = Transactions.Sum(item => item.Amount);
                 }
                 else
                 {
-                    total= 0;
+                    total = 0;
                 }
 
+                // Amount is always stored as integer
                 float fTotal = total;
                 fTotal = fTotal / 100;
 
@@ -44,35 +47,44 @@ namespace Windows_Uomi_App.Data
             }
         }
 
+        // Name must be overriden by derived classes and provided accordingly
         public abstract string Name { get; }
 
-        public Customer()
-        {
+        public Customer(){}
 
-        }
+        // Returns a list of customers from the DB.
+        // This is the main DB functionality
 
-        public static IEnumerable<Customer> ToList(CustomerColumn orderBy, bool ascending, string filter="")
+        public static IEnumerable<Customer> ToList(CustomerColumn orderBy, bool ascending, string filter = "")
         {
+            //Open DB
             using (var db = new LiteDB.LiteDatabase(AppDomain.CurrentDomain.BaseDirectory + @"\uomi.db"))
             {
+                // Retrieve 'customers' collection
                 var col = db.GetCollection<Customer>("customers");
+
+                // Declare a return variable
                 IEnumerable<Customer> retCustomers;
 
+                //Check if a filter was provided
                 if (string.IsNullOrEmpty(filter))
                 {
-                    retCustomers = col.FindAll().OrderBy(x => x.Address);
+                    //No filter, fetch everything
+                    retCustomers = col.FindAll();
                 }
                 else
                 {
-                    retCustomers= col.Find(x => true).Where(x => CultureInfo.CurrentCulture.CompareInfo.IndexOf(x.Name, filter, CompareOptions.IgnoreCase)>=0
-                                                     || CultureInfo.CurrentCulture.CompareInfo.IndexOf(x.Address, filter, CompareOptions.IgnoreCase)>=0
-                                                     || CultureInfo.CurrentCulture.CompareInfo.IndexOf(x.Phonenumber, filter, CompareOptions.IgnoreCase)>= 0);
+                    //Apply filter in name or address or phonenumber
+                    retCustomers = col.Find(x => true).Where(x => CultureInfo.CurrentCulture.CompareInfo.IndexOf(x.Name, filter, CompareOptions.IgnoreCase) >= 0
+                                                      || CultureInfo.CurrentCulture.CompareInfo.IndexOf(x.Address, filter, CompareOptions.IgnoreCase) >= 0
+                                                      || CultureInfo.CurrentCulture.CompareInfo.IndexOf(x.Phonenumber, filter, CompareOptions.IgnoreCase) >= 0);
                 }
 
+                //Order the output
                 switch (orderBy)
                 {
                     case CustomerColumn.Id:
-                        retCustomers = ascending ? retCustomers.OrderBy(x => x.Id): retCustomers.OrderByDescending(x => x.Id);
+                        retCustomers = ascending ? retCustomers.OrderBy(x => x.Id) : retCustomers.OrderByDescending(x => x.Id);
                         break;
                     case CustomerColumn.Name:
                         retCustomers = ascending ? retCustomers.OrderBy(x => x.Name) : retCustomers.OrderByDescending(x => x.Name);
@@ -91,6 +103,7 @@ namespace Windows_Uomi_App.Data
             }
         }
 
+        //Adds customer instance to the DB
         public bool AddToDatabase()
         {
             try
@@ -108,6 +121,7 @@ namespace Windows_Uomi_App.Data
             }
         }
 
+        //Updates customer instance to the database
         public bool UpdateToDatabase()
         {
             try
@@ -125,6 +139,7 @@ namespace Windows_Uomi_App.Data
             }
         }
 
+        //Deletes customer instance from the database
         public bool DeleteFromDatabase()
         {
             try

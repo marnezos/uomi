@@ -12,7 +12,7 @@ namespace Windows_Uomi_App
 {
     public partial class frmCustomerLedger : Form
     {
-
+        //Customer Ledger form has an underlying Customer object
         public Data.Customer CustomerData { get; set; }
 
         public frmCustomerLedger()
@@ -20,6 +20,7 @@ namespace Windows_Uomi_App
             InitializeComponent();
         }
 
+        //Object -> User interface
         private void UpdateInterface()
         {
             lblAddressValue.Text = CustomerData.Address;
@@ -62,9 +63,12 @@ namespace Windows_Uomi_App
             UpdateInterface();
             RefreshLedger();
         }
+
+        //Reload Grid
         private void RefreshLedger()
         {
 
+            //Save position
             int savedRow = 0;
             if (gvwTransactions.Rows.Count > 0) savedRow = gvwTransactions.FirstDisplayedCell.RowIndex;
 
@@ -72,6 +76,7 @@ namespace Windows_Uomi_App
             IEnumerable<Data.Transaction> transactions = CustomerData.Transactions;
             if (transactions !=null && transactions.Count(x => true) > 0)
             {
+                //This grid is not sortable (sorted by timestamp only)
                 transactions = transactions.OrderBy(x => x.Timestamp);
                 transactionBindingSource.DataSource = transactions;
             }
@@ -80,12 +85,14 @@ namespace Windows_Uomi_App
                 gvwTransactions.Rows.Clear();
             }
 
+            //Recall position
             if (savedRow != 0 && savedRow < gvwTransactions.Rows.Count) gvwTransactions.FirstDisplayedScrollingRowIndex = savedRow;
 
         }
 
         private void gvwTransactions_MouseClick(object sender, MouseEventArgs e)
         {
+            //Show popup
             if (e.Button == MouseButtons.Right && gvwTransactions.SelectedRows.Count > 0)
             {
                 mnuLedgerPopup.Show(gvwTransactions, e.X, e.Y);
@@ -94,8 +101,10 @@ namespace Windows_Uomi_App
 
         private void mnuItemEditTransaction_Click(object sender, EventArgs e)
         {
+            //Retrieve selected transaction from grid
             Data.Transaction selectedTransaction = (Data.Transaction)gvwTransactions.SelectedRows[0].DataBoundItem;
 
+            //Pass the retrieved transaction to a new transaction form and show the form
             using (frmTransaction transactionForm = new frmTransaction())
             {
                 transactionForm.TransactionData = selectedTransaction;
@@ -103,6 +112,7 @@ namespace Windows_Uomi_App
                 transactionForm.ShowDialog();
                 if (transactionForm.DialogResult == DialogResult.OK)
                 {
+                    //Update any changes
                     CustomerData.UpdateToDatabase();
                     RefreshLedger();
                     UpdateInterface();
@@ -112,11 +122,13 @@ namespace Windows_Uomi_App
 
         private void mnuItemDeleteTransaction_Click(object sender, EventArgs e)
         {
+            //Retrieve selected transaction from grid
             Data.Transaction selectedTransaction = (Data.Transaction)gvwTransactions.SelectedRows[0].DataBoundItem;
 
             string deleteConfirmationString = Translator.Instance.Translate("confirm_delete_transaction");
             string deleteConfirmationCaption = Translator.Instance.Translate("confirm_delete_transaction_caption");
 
+            //If user acknowledges, delete the transaction
             if (MessageBox.Show(String.Format(deleteConfirmationString, selectedTransaction.Timestamp ,selectedTransaction.LocalizedAmount ), deleteConfirmationCaption, MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
                 CustomerData.Transactions.Remove(selectedTransaction);

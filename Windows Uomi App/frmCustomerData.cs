@@ -13,6 +13,7 @@ namespace Windows_Uomi_App
     public partial class frmCustomerData : Form
     {
 
+        //Customer Data form has an underlying Customer object
         public Data.Customer CustomerData { get; set; }
 
         public frmCustomerData()
@@ -32,6 +33,7 @@ namespace Windows_Uomi_App
             UpdateInterface();
         }
 
+        //Object -> User Interface
         private void UpdateInterface()
         {
             if (CustomerData is Data.RetailCustomer)
@@ -56,6 +58,7 @@ namespace Windows_Uomi_App
 
         }
 
+        //User Interface -> Object
         private void UpdateCustomerData()
         {
             CustomerData.Address = txtAddress.Text;
@@ -72,6 +75,7 @@ namespace Windows_Uomi_App
             }
         }
 
+        //Will work just for the new customer (for now)
         private void CustomerTypeChanged(object sender, EventArgs e)
         {
             if (rdbRetail.Checked && CustomerData is Data.WholesaleCustomer)
