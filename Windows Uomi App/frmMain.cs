@@ -242,15 +242,21 @@ namespace Windows_Uomi_App
         //Show customer's ledger 
         private void mnuItemViewCustomer_Click(object sender, EventArgs e)
         {
-            Data.Customer selectedCustomer = (Data.Customer)gvwCustomers.SelectedRows[0].DataBoundItem;
-            ShowLedgerForm(selectedCustomer);
+            if (gvwCustomers.SelectedRows.Count > 0)
+            {
+                Data.Customer selectedCustomer = (Data.Customer)gvwCustomers.SelectedRows[0].DataBoundItem;
+                ShowLedgerForm(selectedCustomer);
+            }
         }
 
         //Show customer's ledger on double click
         private void gvwCustomers_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            Data.Customer selectedCustomer = (Data.Customer)gvwCustomers.SelectedRows[0].DataBoundItem;
-            ShowLedgerForm(selectedCustomer);
+            if (gvwCustomers.SelectedRows.Count > 0)
+            {
+                Data.Customer selectedCustomer = (Data.Customer)gvwCustomers.SelectedRows[0].DataBoundItem;
+                ShowLedgerForm(selectedCustomer);
+            }
         }
 
         //Shows the ledger for a customer
